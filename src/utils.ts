@@ -52,6 +52,3 @@ export function transpose(pitch:MIDI.Pitch|`x${number}/${number}`, amount:number
 export function toTick(value:number):MIDI.Duration{
   return `T${value}` as any;
 }
-export function at(arr:Array<any>, index:number):any{
-  return index > -1 ? arr[index] : [ ...arr ][arr.length + index];
-}
