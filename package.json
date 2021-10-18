@@ -1,12 +1,12 @@
 {
-  "name": "sorrygle",
+  "name": "sorrygle-node12",
   "version": "1.2.1",
   "description": "Text-based MIDI-writing language and its compiler",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/JJoriping/Sorrygle.git",
+  "repository": "https://github.com/lshqqytiger/Sorrygle.git",
   "homepage": "https://sorry.daldal.so/sorrygle",
-  "author": "JJoriping <op@jjo.kr>",
+  "author": "베프",
   "license": "MIT",
   "bin": {
     "sorrygle": "dist/cli.js"
@@ -17,7 +17,7 @@
     "watch": "tsc -w"
   },
   "bugs": {
-    "url": "https://github.com/JJoriping/Sorrygle/issues"
+    "url": "https://github.com/lshqqytiger/Sorrygle/issues"
   },
   "keywords": [
     "music",
@@ -29,9 +29,9 @@
     "dist/"
   ],
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.2",
+    "@tsconfig/node12": "^1.0.9",
     "@types/nearley": "^2.11.2",
-    "@types/node": "^16.10.2",
+    "@types/node": "^12.12.6",
     "tsc": "^2.0.3",
     "typescript": "^4.4.3"
   },

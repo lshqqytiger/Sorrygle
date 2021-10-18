@@ -1,7 +1,7 @@
 import MIDI = require("midi-writer-js");
 import { AST } from "./AST";
 import SemanticError from "./SemanticError";
-import { toTick, getTickDuration, transpose, getControllerChangePacket, getGhostNote } from "./utils";
+import { toTick, getTickDuration, transpose, getControllerChangePacket, getGhostNote, at } from "./utils";
 
 export type GlobalConfiguration = {
   'track': MIDI.Track,
@@ -249,7 +249,7 @@ export class TrackSet{
     const duration = toTick(actualLength);
 
     if(!this.isDummy){
-      const lastEvent = this.events.at(-1);
+      const lastEvent = at(this.events, -1);
   
       if(lastEvent?.type !== "note") throw new SemanticError(l, "Malformed tie");
       lastEvent.options.duration.push(duration);
