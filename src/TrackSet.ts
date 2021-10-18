@@ -3,6 +3,8 @@ import { AST } from "./AST";
 import SemanticError from "./SemanticError";
 import { toTick, getTickDuration, transpose, getControllerChangePacket, getGhostNote } from "./utils";
 
+const at = (arr: Array<any>, index: number) => index > -1 ? arr[index] : [ ...arr ][arr.length + index];
+
 export type GlobalConfiguration = {
   'track': MIDI.Track,
   'position': number,
@@ -243,7 +245,7 @@ export class TrackSet{
     const duration = toTick(actualLength);
 
     if(!this.isDummy){
-      const lastEvent = this.events.at(-1);
+      const lastEvent = at(this.events, -1);
   
       if(lastEvent?.type !== "note") throw new SemanticError(l, "Malformed tie");
       lastEvent.options.duration.push(duration);
