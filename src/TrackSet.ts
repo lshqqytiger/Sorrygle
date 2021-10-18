@@ -1,9 +1,7 @@
 import MIDI = require("midi-writer-js");
 import { AST } from "./AST";
 import SemanticError from "./SemanticError";
-import { toTick, getTickDuration, transpose, getControllerChangePacket, getGhostNote } from "./utils";
-
-const at = (arr: Array<any>, index: number) => index > -1 ? arr[index] : [ ...arr ][arr.length + index];
+import { toTick, getTickDuration, transpose, getControllerChangePacket, getGhostNote, at } from "./utils";
 
 export type GlobalConfiguration = {
   'track': MIDI.Track,
