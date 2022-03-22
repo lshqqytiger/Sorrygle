@@ -32,6 +32,7 @@ Stackable           -> LocalConfiguration {% id %}
                        | Notation {% id %}
                        | Group {% id %}
                        | Parallelization {% id %}
+                       | Volta {% id %}
                        | rest {% id %}
                        | _ {% id %}
 EmojiDeclaration    -> "((" emoji "=" __ LocalConfiguration __ "))" {%
@@ -120,7 +121,8 @@ Repetition          -> "|:" {%
   (d, l) => ({ l, type: "repeat-open" })
 %} | ":|" digits:? {%
   (d, l) => ({ l, type: "repeat-close", count: e(d[1]?.value) })
-%} | "/1" {%
+%}
+Volta               -> "/1" {%
   (d, l) => ({ l, type: "volta", value: 1 })
 %} | "/2" {%
   (d, l) => ({ l, type: "volta", value: 2 })

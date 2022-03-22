@@ -82,6 +82,7 @@ const grammar: Grammar = {
     {"name": "Stackable", "symbols": ["Notation"], "postprocess": id},
     {"name": "Stackable", "symbols": ["Group"], "postprocess": id},
     {"name": "Stackable", "symbols": ["Parallelization"], "postprocess": id},
+    {"name": "Stackable", "symbols": ["Volta"], "postprocess": id},
     {"name": "Stackable", "symbols": ["rest"], "postprocess": id},
     {"name": "Stackable", "symbols": ["_"], "postprocess": id},
     {"name": "EmojiDeclaration$string$1", "symbols": [{"literal":"("}, {"literal":"("}], "postprocess": (d) => d.join('')},
@@ -247,12 +248,12 @@ const grammar: Grammar = {
     {"name": "Repetition", "symbols": ["Repetition$string$2", "Repetition$ebnf$1"], "postprocess": 
         (d, l) => ({ l, type: "repeat-close", count: e(d[1]?.value) })
         },
-    {"name": "Repetition$string$3", "symbols": [{"literal":"/"}, {"literal":"1"}], "postprocess": (d) => d.join('')},
-    {"name": "Repetition", "symbols": ["Repetition$string$3"], "postprocess": 
+    {"name": "Volta$string$1", "symbols": [{"literal":"/"}, {"literal":"1"}], "postprocess": (d) => d.join('')},
+    {"name": "Volta", "symbols": ["Volta$string$1"], "postprocess": 
         (d, l) => ({ l, type: "volta", value: 1 })
         },
-    {"name": "Repetition$string$4", "symbols": [{"literal":"/"}, {"literal":"2"}], "postprocess": (d) => d.join('')},
-    {"name": "Repetition", "symbols": ["Repetition$string$4"], "postprocess": 
+    {"name": "Volta$string$2", "symbols": [{"literal":"/"}, {"literal":"2"}], "postprocess": (d) => d.join('')},
+    {"name": "Volta", "symbols": ["Volta$string$2"], "postprocess": 
         (d, l) => ({ l, type: "volta", value: 2 })
         },
     {"name": "rangeType", "symbols": [/[v^357s]/], "postprocess": id},
